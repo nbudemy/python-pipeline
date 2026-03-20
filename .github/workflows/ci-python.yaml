@@ -19,3 +19,9 @@ jobs:
         run: |
           python --version
           which python
+      - name: Install dev dependencies
+        run: pip install ".[dev]"
+      - name: Run Format checks with Black
+        run: black --check . --target-version py312
+      - name: Run linting checks with Ruff
+        run: ruff check .
