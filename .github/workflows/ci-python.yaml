@@ -25,3 +25,7 @@ jobs:
         run: black --check . --target-version py312
       - name: Run linting checks with Ruff
         run: ruff check .
+      - name: Type checks with MyPy
+        run: mypy ./src
+      - name: Security checks with Bandit
+        run: bandit -c pyproject.toml -r .
