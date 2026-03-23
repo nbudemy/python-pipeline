@@ -1,8 +1,5 @@
-from asyncio import timeout
-
 import pytest
 import requests
-import sys
 from pytest_mock import MockFixture, MockerFixture
 from simple_http_checker.checker import check_urls
 
