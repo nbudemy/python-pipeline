@@ -19,7 +19,9 @@ dev = [
   "black",
   "mypy",
   "bandit",
-  "types-requests"
+  "types-requests",
+  "pytest",
+  "pytest-mock"
 ]
 
 [project.scripts]
@@ -39,3 +41,7 @@ ignore_missing_imports = true
 
 [tool.bandit]
 exclude_dirs = [".venv", "__pycache__", "build", "dist"]
+
+[tool.pytest.ini_options]
+addopts = "-rA -s -v"
+pythonpath = ["src"]
