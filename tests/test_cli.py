@@ -2,12 +2,14 @@ from click.testing import CliRunner
 from simple_http_checker.cli import main
 from pytest_mock import MockFixture
 
+
 def test_no_urls():
     runner = CliRunner()
     result = runner.invoke(main, [])
 
     assert result.exit_code == 0
     assert "Usage: check-urls <URL1> <URL2>" in result.output
+
 
 def test_single_url_success(mocker: MockFixture):
     url = "https://success.com"
@@ -20,10 +22,11 @@ def test_single_url_success(mocker: MockFixture):
     assert result.exit_code == 0
     mock_check_urls.assert_called_once_with((url,), timeout=3)
 
-    #assert "----Results----" in result.output
-    #assert url in result.output
-    #assert "-> 200 OK" in result.output
+    # assert "----Results----" in result.output
+    # assert url in result.output
+    # assert "-> 200 OK" in result.output
     assert True
+
 
 def test_timeout_option(mocker: MockFixture):
     url = "https://timeout.com"
